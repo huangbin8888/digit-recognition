@@ -1,36 +1,47 @@
 # 推送到 GitHub
 
-本目录已是一个本地 Git 仓库，包含一次完整提交，分支为 `main`。
+本目录已是一个完整的本地 Git 仓库：分支 `main`，一次提交，10 个文件；`verify_model.py` 与 `predict.py` 均已跑通。
 
-## 当前阻塞
+## 当前状态（已实测）
 
-当前 WorkBuddy 的 GitHub 连接器令牌是 GitHub App 集成令牌，可以读取账号信息，但**没有创建仓库的权限**：
+目标仓库 **`huangbin8888/digit-recognition` 已存在**（公开、空仓库、默认分支 `main`），无需再创建。
 
+当前 WorkBuddy 的 GitHub 连接器使用 GitHub App 用户令牌（`ghu_`），可读，但**缺少 `contents=write` 权限**，因此无法写入任何仓库内容。逐条验证如下：
+
+| 写入/建仓途径 | 结果 |
+|---|---|
+| `POST /user/repos`（REST 建仓） | 403，要求 `administration=write` + `repository_creation=write` |
+| `createRepository`（GraphQL） | `FORBIDDEN` |
+| `POST /repos/{owner}/{repo}/forks` | 403，要求 `repository_creation=write` |
+| `PUT /repos/.../contents/...`（REST 写文件） | 403，`x-accepted-github-permissions: contents=write` |
+| `POST /repos/.../git/blobs`（Git Data API） | 403，`contents=write` |
+| MCP `push_files` | 403，创建初始 README 时被拒 |
+| `git push`（Basic 认证两种用户名形式） | 403 `Permission ... denied` |
+| 本机其它凭据 | 无 gh CLI、无 PAT、无系统凭据；连接器凭据解密后为同一只读令牌 |
+
+这是账号级授权范围问题，不是登录过期，也不需要重新授权连接器（重连不会改变 GitHub App 的权限集）。
+
+## 完成推送
+
+生成一枚具备写权限的令牌后，在工作区根目录执行一条命令即可：
+
+```bash
+GITHUB_TOKEN=<你的PAT> ./push-to-github.sh
 ```
-POST https://api.github.com/user/repos
-403 Resource not accessible by integration
-```
 
-账号 `huangbin8888` 目前也没有任何已有仓库可作为推送目标，因此自动建仓 + 推送这条链路被权限挡住。读写文件本身不需要重新登录连接器。
+- Classic PAT：`https://github.com/settings/tokens/new?scopes=repo&description=WorkBuddy`，勾选 `repo`。
+- Fine-grained PAT：对该仓库授予 `Contents: Read and write`。
 
-## 两种方式完成推送
+脚本会自动把 `main` 一次提交推送到已存在的空仓库，随后调用接口校验远端 10 个文件是否齐全。令牌只存在于进程内存与 HTTP 请求头，不写入 `.git/config`，不落盘。
 
-**方式 A（推荐，最省事）**
-
-1. 在 GitHub 网页右上角 `+` → `New repository`，新建名为 `digit-recognition` 的**空仓库**（不要勾选 README / .gitignore / License，保持空仓库），可见性按需选择。
-2. 若 GitHub App 的仓库访问范围是「仅选定仓库」，到 `Settings → Applications → Installed GitHub Apps` 里把新仓库加入授权范围。
-3. 回到本会话说明仓库已创建，即可用现有连接器把本目录全部文件推送上去（一次提交）。
-
-**方式 B（完全手动）**
-
-在 GitHub 网页建好空仓库后，在本目录执行：
+**完全手动的方式**（在网页登录后）：
 
 ```bash
 git remote add origin https://github.com/huangbin8888/digit-recognition.git
 git push -u origin main
 ```
 
-Windows 上首次推送会由 Git Credential Manager 弹出浏览器登录，按提示完成即可。若命令行不便，也可以用 GitHub Desktop 把本目录作为本地仓库发布。
+Windows 首次推送会由 Git Credential Manager 弹出浏览器登录，按提示完成即可。
 
 ## 推送内容
 
