@@ -1,0 +1,137 @@
+[
+  {
+    "path": "digit_lab/__init__.py",
+    "bytes": 138,
+    "sha256": "7b628afec297088840ee2b2576183905530efdbbe81006f114c60fda1d340014"
+  },
+  {
+    "path": "digit_lab/__main__.py",
+    "bytes": 512,
+    "sha256": "b686ebce2e1b4fd08b6e9e1bce2ff8e961627cb51c6fae2a29a46bfe2395d9bc"
+  },
+  {
+    "path": "digit_lab/core/__init__.py",
+    "bytes": 370,
+    "sha256": "a386682ef59254556cc9ac59fbf2101c580a88c426a4423f7676378c06f1f571"
+  },
+  {
+    "path": "digit_lab/core/capture.py",
+    "bytes": 14400,
+    "sha256": "e9beb31f43736e9d51f08006b523b9771729d674c92d21c0853aae5366b0b7fc"
+  },
+  {
+    "path": "digit_lab/core/classifier.py",
+    "bytes": 7603,
+    "sha256": "c8fc4c9025ca0cd97324b385679df2d5ca11665ca1e8f52ab0a14d76267c7c40"
+  },
+  {
+    "path": "digit_lab/core/handwriting.py",
+    "bytes": 34017,
+    "sha256": "cd76681228ba8b305d9b4c1beaf8f77ba40d6cb2834d904f7e6ef620aeec1f13"
+  },
+  {
+    "path": "digit_lab/core/imaging.py",
+    "bytes": 28963,
+    "sha256": "fdb63f32c0ce4c4adcb787e10bc3f5eb3cfb4ba806cabf4e403afc7f2d813cac"
+  },
+  {
+    "path": "digit_lab/core/models.py",
+    "bytes": 3183,
+    "sha256": "42d8d47158b48a1f8462d86ece0dfe4a27f1757c390b8f128e666b5e73402f17"
+  },
+  {
+    "path": "digit_lab/core/recognize.py",
+    "bytes": 9169,
+    "sha256": "bf5f0c636e1c9f21e3ca6400d593f74b8fbe734acf0d3fe0e3ccc9bbcd89ab57"
+  },
+  {
+    "path": "digit_lab/core/results.py",
+    "bytes": 13335,
+    "sha256": "c73ac25461f92626ba59ff090e57388a0918632ea11807a2156aa78eae67849c"
+  },
+  {
+    "path": "digit_lab/core/samples.py",
+    "bytes": 19403,
+    "sha256": "43835b2d1279830cf4619583b14d14424d148c024cc3edfc3a7523c6f332f0d1"
+  },
+  {
+    "path": "digit_lab/core/support.py",
+    "bytes": 11326,
+    "sha256": "410a95dcfef6d8497ce766208e686bd122add7bad5875102b3763bb2fe254736"
+  },
+  {
+    "path": "digit_lab/core/training.py",
+    "bytes": 9742,
+    "sha256": "ee721cad5dec48b3493639baf32b4a54aa214f0cb53cca94b2c36dc7fc132bb0"
+  },
+  {
+    "path": "digit_lab/generate.py",
+    "bytes": 5804,
+    "sha256": "634092dea3af40c6a1badeed5a15256194881a752123bcfc2382834834ac2350"
+  },
+  {
+    "path": "digit_lab/server.py",
+    "bytes": 22187,
+    "sha256": "6f7a52c0cbe49d709ce1893e8c07aa21b8000d7cee984b46ecb016821e7ed505"
+  },
+  {
+    "path": "digit_lab/web/app.js",
+    "bytes": 22630,
+    "sha256": "f8c9afec5ae3ab6a0fa920d0c0ca1d41ad04d91f92418f51c9505427d66476f7"
+  },
+  {
+    "path": "digit_lab/web/index.html",
+    "bytes": 4025,
+    "sha256": "1d8ad63f538de452a5c12b2294b14791a3fe844015aed502b26e578953841c95"
+  },
+  {
+    "path": "digit_lab/web/style.css",
+    "bytes": 11371,
+    "sha256": "e8ac18bd855f90210bf340c56e37ba37f710261b2c67b03d21583ba0c65925a8"
+  },
+  {
+    "path": "digit_lab/web/views.js",
+    "bytes": 57147,
+    "sha256": "f67818264cecb4e63dba1d6622e7191698b5a69f736f870af6200998f19abd80"
+  },
+  {
+    "path": "docs/新手上手教程.html",
+    "bytes": 43116,
+    "sha256": "1829ad382329d47d7438fae5cd5c131213086ab03f7cc26aa7376513c1d49b5d"
+  },
+  {
+    "path": "docs/新手上手教程.md",
+    "bytes": 21715,
+    "sha256": "ec0bb935b3b1d27e94db8d8eca317bc8bee5127325e19b9607aa6af31f81ce8e"
+  },
+  {
+    "path": "README.md",
+    "bytes": 19481,
+    "sha256": "932fc0d602ed83d18f3d0e39b875a4ccb72b55bd53ff983d5a630640fb5df94e"
+  },
+  {
+    "path": "tests/handwriting_regression.py",
+    "bytes": 12519,
+    "sha256": "93c4ae79e761f8970547dae4b389f9c94f4ae53c16893c731b3852f31f99e952"
+  },
+  {
+    "path": "tests/quickstart_regression.py",
+    "bytes": 11445,
+    "sha256": "1232411d2a83209102ac8f04e9e12c72955fa9335444eafc990e393a35ebc56f"
+  },
+  {
+    "path": "tests/region_capture_probe.py",
+    "bytes": 11720,
+    "sha256": "c2ea0246b4933dc72d4e259b8a2cbcf868df7cea4ae6f917118a66e22dfdd97a"
+  },
+  {
+    "path": "tests/selftest.py",
+    "bytes": 10122,
+    "sha256": "fb4ff4a221fefa4312b849f6d7255692b0c780eb0ab1daad40101e4b556ebfd1"
+  },
+  {
+    "path": "tests/ui_smoke.js",
+    "bytes": 7227,
+    "sha256": "da179324c9c5ce9a0d47f6395bf1a331653e8c873a02d2a53a859a8df8222c3a"
+  }
+]
